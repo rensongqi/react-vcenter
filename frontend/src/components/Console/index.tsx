@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import './css/wmks-all.css'
+import './index.css'
 import {useParams} from "react-router-dom";
 import {message} from "antd";
 declare var WMKS: any;
