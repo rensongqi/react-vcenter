@@ -1,8 +1,6 @@
 # React-Vcenter
 
-[中文文档](./README-zh.md)
-
-Implement vSphere vcenter virtual machine remote based on go & react, It provides the same functions as the `Launch Web Console` in vCenter management.
+基于go & react实现远程vSphere vcenter虚拟机的功能，提供与vcenter管理中的`Launch Web Console`相同的功能。
 
 ## Demo
 
@@ -17,7 +15,7 @@ URL: `http://localhost:3000`
 
 ## Quick Start
 
-1. configure the frontend proxy
+1. 配置前端访问后端的代理
 
 `frontend/package.json`
 
@@ -46,14 +44,14 @@ module.exports= function (app:any) {
 }
 ```
 
-2. configure the websocket address
+2. 配置websocket地址
 
 `frontend/src/components/Console/index.tsx`, `domain_name` requires a value for nginx server_name
 ```typescript
 const consoleUrl = 'wss://<domain_name>/ticket/' + ticket + '?ip=' + host
 ```
 
-3. configure the nginx proxy of the vCenter host, and all requests to the console page of the virtual machine will be forwarded to the specified vCenter host by the nginx proxy
+3. 配置vCenter宿主机的nginx代理，所有访问虚拟机console页面的请求均由nginx来代理转发到指定的vCenter宿主机上
 
 ```nginx configuration
 server {
@@ -105,7 +103,7 @@ server {
 }
 ```
 
-4. configure the username and password for vCenter sdk access
+4. 配置vCenter sdk的账号密码和URL地址信息
 
 `backend/pkg/client.go`
 
@@ -113,7 +111,7 @@ server {
 vcenterURL   = flag.String("vcurl", "https://<user>:<pass>@vcenter.rsq.cn/sdk", "URL of vCenter Server instance")
 ```
 
-5. start the frontend and backend services
+5. 开启前后端服务
 ```bash
 # start frontend
 cd frontend
